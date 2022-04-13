@@ -15,11 +15,11 @@ public class FirstWindow extends JFrame{
     private JButton checkFileB;
     private JPanel mainPanel;
 
-    // Data from table:
+    /*// Data from table:
     ArrayList<LocalDate> DatesT = new ArrayList<LocalDate>();
     ArrayList<String> NamesT = new ArrayList<String>();
     ArrayList<Boolean> AttendT = new ArrayList<Boolean>();
-    int nameCounter = 0;
+    int nameCounter = 0;*/
 
     public FirstWindow(String title) throws ParseException{
         super(title);
@@ -31,6 +31,7 @@ public class FirstWindow extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
 
+                // check extension:
                 String extension = "";
                 String fileName = fileNameTF.getText();
                 int index = fileName.lastIndexOf('.');
@@ -38,48 +39,13 @@ public class FirstWindow extends JFrame{
                     extension = fileName.substring(index + 1);
                 }
 
-
-
-                if(extension.equals("csv")){
-                    CSVReader reader = null;
-
-                    try{//parsing a CSV file into CSVReader class constructor
-                        reader = new CSVReader(new FileReader(fileName));
-                        String [] nextLine;//reads one line at a time
-
-                        // reads date:
-                        if((nextLine = reader.readNext()) != null){
-                            for(int i = 1; i < nextLine.length; i++){
-                                String token = nextLine[i];
-                                LocalDate date = LocalDate.parse(token);
-                                DatesT.add(date);
-                            }
-                            System.out.println("");
-                        }
-
-                        // reads name and attendance:
-                        while ((nextLine = reader.readNext()) != null) {
-                            NamesT.add(nextLine[0]);
-                            nameCounter++;
-
-                            int i = 1;
-                            do{
-                                Boolean b = Boolean.parseBoolean(nextLine[i]);
-                                AttendT.add(b);
-                                i++;
-                            }while(i < DatesT.size());
-                            for(String token : nextLine) {
-                                //System.out.print(token+", ");
-
-                            }
-                            //System.out.println("");
-                        }
-                    }
-                    catch (Exception ex) {
-                        ex.printStackTrace();
-                    }
+                FileActions impl;
+                if(extension.equals("csv")) {
+                    impl = new CSVImplement();
+                    impl.readTable(fileName);
+                    impl.showAllStudents();
+                    //impl.save(fileName);
                 }
-
 
 
                 else if(extension.equals("xls")){
@@ -89,18 +55,8 @@ public class FirstWindow extends JFrame{
                     System.out.println("ERROR - incorrect extension");
                 }
 
-                System.out.println("aa");
-                System.out.print("       ");
-                for(int i = 0; i < DatesT.size(); i++){
-                    System.out.print(DatesT.get(i)+", ");
-                }
-                for(int i = 0; i < nameCounter; i++){
-                    System.out.print(NamesT.get(i) + ", ");
-                    for(int j = 0; j < DatesT.size(); j++){
-                        System.out.print(AttendT.get(j) + ", ");
-                    }
-                    System.out.println("");
-                }
+
+
                 //JFrame frame2 = new SecondWindow("Attendancy system");
                 //frame2.setVisible(true);
             }

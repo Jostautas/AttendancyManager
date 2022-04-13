@@ -5,5 +5,7 @@ public interface FileActions {
     void addDate(LocalDate date);
     void showAllStudents();
     void showOneStudent();
-    void save();
+    void save(String fileName);
+
+    void readTable(String fileName);
 }
