@@ -6,7 +6,7 @@ public interface FileActions {
     void addDate(String str);
     void showAllStudents();
     void showOneStudent(String name);
-    void showOneStudWithinDates(String startD, String endD);
+    void showOneStudWithinDates(String name);
     void changeAttend(Boolean newVal);
     void save(String fileName);
     void readTable(String fileName);

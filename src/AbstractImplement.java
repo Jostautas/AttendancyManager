@@ -27,21 +27,6 @@ public abstract class AbstractImplement implements FileActions {
         }
 
         new SecondWindow(data, collumnNames);
-
-        /*
-        System.out.print("       ");
-        for(int i = 0; i < DatesT.size(); i++){
-            System.out.print(DatesT.get(i)+", ");
-        }
-        for(int i = 0; i < nameCounter; i++){
-            System.out.print(NamesT.get(i) + ", ");
-            List<Boolean> temp = new ArrayList<Boolean>();
-            temp = AttendT.get(i);
-            for(int j = 0; j < DatesT.size(); j++){
-                System.out.print(temp.get(j) + ", ");
-            }
-            System.out.println("");
-        }*/
     }
 
     @Override
@@ -69,43 +54,35 @@ public abstract class AbstractImplement implements FileActions {
     }
 
     @Override
-    public void showOneStudent(String name) {
-        for(int i = 0; i < DatesT.size(); i++){
-            System.out.print(DatesT.get(i)+", ");
-        }
-        System.out.println("");
-        for(int i = 0; i < NamesT.size(); i++){
-            if(NamesT.get(i).equals(name)){
-                System.out.print(NamesT.get(i) + ", ");
-                List<Boolean> temp = new ArrayList<Boolean>();
-                temp = AttendT.get(i);
-                for (int j = 0; j < DatesT.size(); j++) {
-                    System.out.print(temp.get(j) + ", ");
-                }
-                System.out.println("");
-                return;
-            }
-        }
-        System.out.println("STUDENT NOT FOUND");
-    }
-
-    @Override
-    public void showOneStudWithinDates(String startD, String endD){
-
-    }
-
-    @Override
-    public void changeAttend(Boolean newVal) {
-
-    }
-
-    @Override
     public LocalDate readDate(String str){
         LocalDate date = LocalDate.parse(str);
         return date;
     }
 
+    @Override
+    public void showOneStudent(String name) {
+        String[] collumnNames = new String[DatesT.size()+1];
+        collumnNames[0] = "Names";
+        for(int i = 0; i < DatesT.size(); i++){
+            collumnNames[i+1] = DatesT.get(i).toString();
+        }
 
+        String[][] data = new String[NamesT.size()][DatesT.size()+1];
+        for(int i = 0; i < NamesT.size(); i++){
+            if(NamesT.get(i).equals(name)) {
+                data[0][0] = NamesT.get(i);
+                List<Boolean> temp = new ArrayList<Boolean>();
+                temp = AttendT.get(i);
+                for (int j = 0; j < DatesT.size(); j++) {
+                    data[0][j+1] = temp.get(j).toString();
+                }
+                new SecondWindow(data, collumnNames);
+                return;
+            }
+        }
+        System.out.println("ERROR - no such student");
+
+    }
 
     @Override
     public ArrayList<LocalDate> getDatesT(){

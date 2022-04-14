@@ -48,6 +48,7 @@ public class CSVImplement extends AbstractImplement{
     }
 
     CSVWriter writer;
+
     @Override
     public void save(String fileName) {
         try{
@@ -85,12 +86,15 @@ public class CSVImplement extends AbstractImplement{
 
     @Override
     public void setDatesT(ArrayList<LocalDate> DatesT) {
+        this.DatesT = DatesT;
     }
     @Override
     public void setNamesT(ArrayList<String> NamesT) {
+        this.NamesT = NamesT;
     }
     @Override
     public void setAttendT(ArrayList<ArrayList<Boolean>> AttendT) {
+        this.AttendT = AttendT;
     }
     @Override
     public void showAllStudentsWDate() {
@@ -101,5 +105,11 @@ public class CSVImplement extends AbstractImplement{
     @Override
     public void setEndDate(LocalDate endDate) {
     }
+    @Override
+    public void changeAttend(Boolean newVal) {
+    }
 
+    @Override
+    public void showOneStudWithinDates(String name) {
+    }
 }

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="FirstWindow">
-  <grid id="27dc6" binding="mainPanel" layout-manager="GridLayoutManager" row-count="13" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+  <grid id="27dc6" binding="mainPanel" layout-manager="GridLayoutManager" row-count="15" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
-      <xy x="20" y="20" width="825" height="400"/>
+      <xy x="20" y="20" width="919" height="429"/>
     </constraints>
     <properties/>
     <border type="none"/>
@@ -64,7 +64,7 @@
       </component>
       <component id="741fd" class="javax.swing.JLabel">
         <constraints>
-          <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <text value="Show selected student within dates"/>
@@ -141,21 +141,13 @@
       </component>
       <component id="e31e0" class="javax.swing.JLabel">
         <constraints>
-          <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <text value="Show selected student"/>
         </properties>
       </component>
-      <component id="5717f" class="javax.swing.JButton" binding="showButton" default-binding="true">
-        <constraints>
-          <grid row="6" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="Show"/>
-        </properties>
-      </component>
-      <component id="48c99" class="javax.swing.JButton" binding="showButton1" default-binding="true">
+      <component id="5717f" class="javax.swing.JButton" binding="showOneB">
         <constraints>
           <grid row="7" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -163,15 +155,15 @@
           <text value="Show"/>
         </properties>
       </component>
-      <component id="5da12" class="javax.swing.JButton" binding="exportToPDFButton2" default-binding="true">
+      <component id="48c99" class="javax.swing.JButton" binding="showOneWDateB">
         <constraints>
-          <grid row="6" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="8" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Export to PDF"/>
+          <text value="Show"/>
         </properties>
       </component>
-      <component id="27dee" class="javax.swing.JButton" binding="exportToPDFButton3" default-binding="true">
+      <component id="5da12" class="javax.swing.JButton" binding="exportToPDFButton2" default-binding="true">
         <constraints>
           <grid row="7" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -179,17 +171,25 @@
           <text value="Export to PDF"/>
         </properties>
       </component>
+      <component id="27dee" class="javax.swing.JButton" binding="exportToPDFButton3" default-binding="true">
+        <constraints>
+          <grid row="8" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Export to PDF"/>
+        </properties>
+      </component>
       <component id="63b98" class="javax.swing.JLabel">
         <constraints>
-          <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="9" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <text value="Add student"/>
         </properties>
       </component>
-      <component id="edf26" class="javax.swing.JTextField" binding="nameSurnameTextField" default-binding="true">
+      <component id="edf26" class="javax.swing.JTextField" binding="nameTF">
         <constraints>
-          <grid row="8" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+          <grid row="7" column="1" row-span="4" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
           </grid>
         </constraints>
@@ -197,9 +197,9 @@
           <text value="Name Surname"/>
         </properties>
       </component>
-      <component id="a256" class="javax.swing.JButton" binding="addButton" default-binding="true">
+      <component id="a256" class="javax.swing.JButton" binding="addStudB">
         <constraints>
-          <grid row="8" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="9" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <text value="Add"/>
@@ -207,49 +207,31 @@
       </component>
       <component id="3c411" class="javax.swing.JLabel">
         <constraints>
-          <grid row="9" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="Add date (yyyy-MM-dd)"/>
-        </properties>
-      </component>
-      <component id="c0765" class="javax.swing.JTextField" binding="textField1" default-binding="true">
-        <constraints>
-          <grid row="9" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-            <preferred-size width="150" height="-1"/>
-          </grid>
-        </constraints>
-        <properties/>
-      </component>
-      <vspacer id="e284d">
-        <constraints>
-          <grid row="11" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
-        </constraints>
-      </vspacer>
-      <component id="5451e" class="javax.swing.JButton" binding="saveButton" default-binding="true">
-        <constraints>
-          <grid row="12" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="Save"/>
-        </properties>
-      </component>
-      <component id="90baf" class="javax.swing.JLabel">
-        <constraints>
           <grid row="10" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <text value="Change attendance status of a student"/>
         </properties>
       </component>
-      <component id="b0eed" class="javax.swing.JTextField" binding="nameSurnameTextField1" default-binding="true">
+      <vspacer id="e284d">
         <constraints>
-          <grid row="10" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-            <preferred-size width="150" height="-1"/>
-          </grid>
+          <grid row="13" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </vspacer>
+      <component id="5451e" class="javax.swing.JButton" binding="saveB">
+        <constraints>
+          <grid row="14" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Name Surname"/>
+          <text value="Save changes"/>
+        </properties>
+      </component>
+      <component id="90baf" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="12" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Add date (yyyy-MM-dd) "/>
         </properties>
       </component>
       <component id="310bd" class="javax.swing.JTextField" binding="dateTextField" default-binding="true">
@@ -262,7 +244,7 @@
           <text value="Date"/>
         </properties>
       </component>
-      <component id="61f5a" class="javax.swing.JButton" binding="trueButton" default-binding="true">
+      <component id="61f5a" class="javax.swing.JButton" binding="trueB">
         <constraints>
           <grid row="10" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -270,7 +252,7 @@
           <text value="true"/>
         </properties>
       </component>
-      <component id="a73ca" class="javax.swing.JButton" binding="falseButton" default-binding="true">
+      <component id="a73ca" class="javax.swing.JButton" binding="falseB">
         <constraints>
           <grid row="10" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -278,6 +260,24 @@
           <text value="false"/>
         </properties>
       </component>
+      <component id="faef8" class="javax.swing.JTextField" binding="addDateTF">
+        <constraints>
+          <grid row="12" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties/>
+      </component>
+      <vspacer id="f10d6">
+        <constraints>
+          <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </vspacer>
+      <vspacer id="1d57e">
+        <constraints>
+          <grid row="11" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </vspacer>
     </children>
   </grid>
 </form>

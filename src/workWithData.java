@@ -32,7 +32,6 @@ public class workWithData extends AbstractImplement{
 
     @Override
     public void showAllStudentsWDate(){
-
         int columnCounter = 0;
         for(int i = 0; i < DatesT.size(); i++){
             if(DatesT.get(i).isAfter(startDate) && DatesT.get(i).isBefore(endDate)){
@@ -65,6 +64,50 @@ public class workWithData extends AbstractImplement{
         new SecondWindow(data, collumnNames);
 
     }
+
+    @Override
+    public void showOneStudWithinDates(String name){
+        int columnCounter = 0;
+        for(int i = 0; i < DatesT.size(); i++){
+            if(DatesT.get(i).isAfter(startDate) && DatesT.get(i).isBefore(endDate)){
+                columnCounter++;
+            }
+        }
+
+        String[] collumnNames = new String[columnCounter+1];
+        collumnNames[0] = "Names";
+        for(int i = 0, j = 1; i < DatesT.size(); i++){
+            if(DatesT.get(i).isAfter(startDate) && DatesT.get(i).isBefore(endDate)) {
+                collumnNames[j] = DatesT.get(i).toString();
+                j++;
+            }
+        }
+
+        String[][] data = new String[NamesT.size()][DatesT.size()+1];
+        for(int i = 0; i < NamesT.size(); i++){
+            if(NamesT.get(i).equals(name)) {
+                data[0][0] = NamesT.get(i);
+                List<Boolean> temp = new ArrayList<Boolean>();
+                temp = AttendT.get(i);
+                for (int j = 0, y = 1; j < DatesT.size(); j++) {
+                    if(DatesT.get(j).isAfter(startDate) && DatesT.get(j).isBefore(endDate)) {
+                        data[0][y] = temp.get(j).toString();
+                        y++;
+                    }
+                }
+                new SecondWindow(data, collumnNames);
+                return;
+            }
+        }
+        System.out.println("ERROR - no such student");
+    }
+
+    @Override
+    public void changeAttend(Boolean newVal) {
+
+    }
+
+
 
     @Override
     public void save(String fileName) {
