@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 
 public class CSVImplement extends AbstractImplement{
     @Override
@@ -20,8 +21,8 @@ public class CSVImplement extends AbstractImplement{
             // reads date:
             if((nextLine = reader.readNext()) != null){
                 for(int i = 1; i < nextLine.length; i++){
-                    String token = nextLine[i];
-                    LocalDate date = LocalDate.parse(token);
+                    String str = nextLine[i];
+                    LocalDate date = LocalDate.parse(str);
                     DatesT.add(date);
                 }
                 System.out.println("");
@@ -32,24 +33,19 @@ public class CSVImplement extends AbstractImplement{
                 NamesT.add(nextLine[0]);
 
                 int i = 1;
-                //AttendT.add(new ArrayList<Boolean>());
-                //ArrayList<Boolean> strB = new ArrayList<Boolean>();
                 AttendT.add(new ArrayList<Boolean>());
                 do{
                     Boolean b = Boolean.parseBoolean(nextLine[i]);
-                    AttendT.get(nameCounter).add(b);
+                    AttendT.get(NamesT.size()-1).add(b);
                     i++;
-                }while(i < DatesT.size());
-                //AttendT.add(strB);
-                nameCounter++;
-
+                }while(i <= DatesT.size());
             }
             reader.close();
         }
         catch (Exception ex) {
             ex.printStackTrace();
         }
-}
+    }
 
     CSVWriter writer;
     @Override
@@ -69,10 +65,13 @@ public class CSVImplement extends AbstractImplement{
             writer.writeNext(line);
 
             // write the rest lines:
-            for(int i = 1; i <= nameCounter; i++){
-                line[0] = NamesT.get(i-1);
+            for(int i = 0; i < NamesT.size(); i++){
+                line[0] = NamesT.get(i);
+
+                List<Boolean> temp = new ArrayList<Boolean>();
+                temp = AttendT.get(i);
                 for(int j = 1; j <= DatesT.size(); j++){
-                    line[j] = "boolean";
+                    line[j] = temp.get(j-1).toString();
                 }
                 writer.writeNext(line);
             }
@@ -83,18 +82,24 @@ public class CSVImplement extends AbstractImplement{
         }
     }
 
-    @Override
-    public void addStudent(String name) {
-
-    }
 
     @Override
-    public void addDate(LocalDate date) {
-
+    public void setDatesT(ArrayList<LocalDate> DatesT) {
     }
-
     @Override
-    public void showOneStudent() {
-
+    public void setNamesT(ArrayList<String> NamesT) {
     }
+    @Override
+    public void setAttendT(ArrayList<ArrayList<Boolean>> AttendT) {
+    }
+    @Override
+    public void showAllStudentsWDate() {
+    }
+    @Override
+    public void setStartDate(LocalDate startDate) {
+    }
+    @Override
+    public void setEndDate(LocalDate endDate) {
+    }
+
 }
