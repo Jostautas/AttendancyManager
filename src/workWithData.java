@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class workWithData extends AbstractImplement{
-    LocalDate startDate, endDate;
+    LocalDate startDate, endDate, date;
 
     @Override
     public void setDatesT(ArrayList<LocalDate> DatesT) {
@@ -28,6 +28,11 @@ public class workWithData extends AbstractImplement{
     @Override
     public void setEndDate(LocalDate endDate) {
         this.endDate = endDate;
+    }
+
+    @Override
+    public void setDate(LocalDate date) {
+        this.date = date;
     }
 
     @Override
@@ -103,8 +108,36 @@ public class workWithData extends AbstractImplement{
     }
 
     @Override
-    public void changeAttend(Boolean newVal) {
+    public void changeAttend(Boolean newVal, String name) {
+        // check if date exists:
+        int dateIndex = -1;
+        for(int i = 0; i < DatesT.size(); i++){
+            if(date.isEqual(DatesT.get(i))){
+                dateIndex = i;
+                break;
+            }
+        }
+        if(dateIndex == -1){
+            System.out.println("ERROR - no such date");
+            return;
+        }
 
+        // check if student exists:
+        int studIndex = -1;
+        for(int i = 0; i < NamesT.size(); i++){
+            if(name.equals(NamesT.get(i))){
+                studIndex = i;
+                break;
+            }
+        }
+        if(studIndex == -1){
+            System.out.println("ERROR - no such student");
+            return;
+        }
+
+        // if all ok, set bool value in table:
+        ArrayList<Boolean> temp = AttendT.get(studIndex);
+        temp.set(dateIndex, newVal);
     }
 
 

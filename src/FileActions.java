@@ -7,7 +7,7 @@ public interface FileActions {
     void showAllStudents();
     void showOneStudent(String name);
     void showOneStudWithinDates(String name);
-    void changeAttend(Boolean newVal);
+    void changeAttend(Boolean newVal, String name);
     void save(String fileName);
     void readTable(String fileName);
 
@@ -22,5 +22,6 @@ public interface FileActions {
     void setAttendT(ArrayList<ArrayList<Boolean>> AttendT);
     void setStartDate(LocalDate startDate);
     void setEndDate(LocalDate endDate);
+    void setDate(LocalDate date);
 
 }

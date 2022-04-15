@@ -16,7 +16,7 @@ public class CSVImplement extends AbstractImplement{
 
         try{//parsing a CSV file into CSVReader class constructor
             reader = new CSVReader(new FileReader(fileName));
-            String [] nextLine;//reads one line at a time
+            String[] nextLine;//reads one line at a time
 
             // reads date:
             if((nextLine = reader.readNext()) != null){
@@ -25,7 +25,6 @@ public class CSVImplement extends AbstractImplement{
                     LocalDate date = LocalDate.parse(str);
                     DatesT.add(date);
                 }
-                System.out.println("");
             }
 
             // reads name and attendance:
@@ -47,8 +46,6 @@ public class CSVImplement extends AbstractImplement{
         }
     }
 
-    CSVWriter writer;
-
     @Override
     public void save(String fileName) {
         try{
@@ -57,7 +54,6 @@ public class CSVImplement extends AbstractImplement{
             // overwriting data file:
 
             String[] line = new String[DatesT.size()+1];
-
             // write first line:
             line[0] = "Name";
             for(int i = 1; i <= (DatesT.size()); i++){
@@ -106,7 +102,10 @@ public class CSVImplement extends AbstractImplement{
     public void setEndDate(LocalDate endDate) {
     }
     @Override
-    public void changeAttend(Boolean newVal) {
+    public void setDate(LocalDate date) {
+    }
+    @Override
+    public void changeAttend(Boolean newVal, String name) {
     }
 
     @Override

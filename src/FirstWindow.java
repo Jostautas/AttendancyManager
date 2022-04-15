@@ -25,11 +25,12 @@ public class FirstWindow extends JFrame{
     private JButton exportToPDFButton3;
     private JTextField nameTF;
     private JButton addStudB;
-    private JButton saveB;
-    private JTextField dateTextField;
+    private JButton saveCSV_B;
+    private JTextField dateTF;
     private JButton trueB;
     private JButton falseB;
-    private JTextField addDateTF;
+    private JButton addDateB;
+    private JButton saveXLS_B;
 
     ArrayList<LocalDate> DatesT = new ArrayList<LocalDate>();
     ArrayList<String> NamesT = new ArrayList<String>();
@@ -66,7 +67,15 @@ public class FirstWindow extends JFrame{
                     NamesT = impl.getNamesT();
                     AttendT = impl.getAttendT();
                 } else if (extension.equals("xls")) {
-                    System.out.println("XLS");
+                    openedFileName = fileName;
+
+                    impl = new XLSImplement();
+                    impl.readTable(fileName);
+                    CheckConfirmL.setText("Opened Successfully");
+
+                    DatesT = impl.getDatesT();
+                    NamesT = impl.getNamesT();
+                    AttendT = impl.getAttendT();
                 } else {
                     System.out.println("ERROR - incorrect extension");
                     CheckConfirmL.setText("ERROR");
@@ -122,7 +131,7 @@ public class FirstWindow extends JFrame{
                 work.showOneStudWithinDates(nameTF.getText());
             }
         });
-        saveB.addActionListener(new ActionListener() {
+        saveCSV_B.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 FileActions impl = new CSVImplement();
@@ -134,6 +143,7 @@ public class FirstWindow extends JFrame{
                 System.out.println("changes saved");
             }
         });
+
         addStudB.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -152,13 +162,56 @@ public class FirstWindow extends JFrame{
         trueB.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                FileActions work = new workWithData();
+                work.setDatesT(DatesT);
+                work.setNamesT(NamesT);
+                work.setAttendT(AttendT);
 
+                work.setDate(work.readDate(dateTF.getText()));
+                work.changeAttend(true, nameTF.getText());
+
+                AttendT = work.getAttendT();
             }
         });
         falseB.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                FileActions work = new workWithData();
+                work.setDatesT(DatesT);
+                work.setNamesT(NamesT);
+                work.setAttendT(AttendT);
 
+                work.setDate(work.readDate(dateTF.getText()));
+                work.changeAttend(false, nameTF.getText());
+
+                AttendT = work.getAttendT();
+            }
+        });
+        addDateB.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                FileActions work = new workWithData();
+                work.setDatesT(DatesT);
+                work.setNamesT(NamesT);
+                work.setAttendT(AttendT);
+
+                work.addDate(dateTF.getText());
+
+                work.getDatesT();
+                work.getNamesT();
+                work.getAttendT();
+            }
+        });
+        saveXLS_B.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                FileActions impl = new XLSImplement();
+
+                impl.setDatesT(DatesT);
+                impl.setNamesT(NamesT);
+                impl.setAttendT(AttendT);
+                impl.save(openedFileName);
+                System.out.println("changes saved");
             }
         });
     }
