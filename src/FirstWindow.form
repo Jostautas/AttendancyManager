@@ -96,7 +96,7 @@
       </component>
       <component id="cc4e2" class="javax.swing.JLabel" binding="CheckConfirmL">
         <constraints>
-          <grid row="0" column="3" row-span="2" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <text value=""/>
@@ -131,7 +131,7 @@
           <text value="Export to PDF"/>
         </properties>
       </component>
-      <component id="ce6a8" class="javax.swing.JButton" binding="exportToPDFButton1" default-binding="true">
+      <component id="ce6a8" class="javax.swing.JButton" binding="PDFAllStudWithinDatesB">
         <constraints>
           <grid row="5" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -163,7 +163,7 @@
           <text value="Show"/>
         </properties>
       </component>
-      <component id="5da12" class="javax.swing.JButton" binding="exportToPDFButton2" default-binding="true">
+      <component id="5da12" class="javax.swing.JButton" binding="PDFOneStudB">
         <constraints>
           <grid row="7" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -171,7 +171,7 @@
           <text value="Export to PDF"/>
         </properties>
       </component>
-      <component id="27dee" class="javax.swing.JButton" binding="exportToPDFButton3" default-binding="true">
+      <component id="27dee" class="javax.swing.JButton" binding="PDFOneStudWithinDatesB">
         <constraints>
           <grid row="8" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>

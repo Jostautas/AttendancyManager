@@ -113,7 +113,7 @@ public class XLSImplement extends AbstractImplement{
             this.AttendT = AttendT;
         }
         @Override
-        public void showAllStudentsWDate() {
+        public void showAllStudentsWDate(Boolean choice) {
         }
         @Override
         public void setStartDate(LocalDate startDate) {
@@ -128,7 +128,7 @@ public class XLSImplement extends AbstractImplement{
         public void changeAttend(Boolean newVal, String name) {
         }
         @Override
-        public void showOneStudWithinDates(String name) {
+        public void showOneStudWithinDates(String name, Boolean choice) {
         }
 
 }

@@ -5,14 +5,13 @@ public interface FileActions {
     void addStudent(String newName);
     void addDate(String str);
     void showAllStudents(Boolean choice); // choice = false - shows table in new window. true - prints to pdf
-    void showOneStudent(String name);
-    void showOneStudWithinDates(String name);
+    void showOneStudent(String name, Boolean choice);
+    void showOneStudWithinDates(String name, Boolean choice);
     void changeAttend(Boolean newVal, String name);
     void save(String fileName);
     void readTable(String fileName);
-
     LocalDate readDate(String str);
-    void showAllStudentsWDate();
+    void showAllStudentsWDate(Boolean choice);
     ArrayList<LocalDate> getDatesT();
     ArrayList<String> getNamesT();
     ArrayList<ArrayList<Boolean>> getAttendT();

@@ -93,7 +93,7 @@ public class CSVImplement extends AbstractImplement{
         this.AttendT = AttendT;
     }
     @Override
-    public void showAllStudentsWDate() {
+    public void showAllStudentsWDate(Boolean choice) {
     }
     @Override
     public void setStartDate(LocalDate startDate) {
@@ -109,6 +109,6 @@ public class CSVImplement extends AbstractImplement{
     }
 
     @Override
-    public void showOneStudWithinDates(String name) {
+    public void showOneStudWithinDates(String name, Boolean choice) {
     }
 }

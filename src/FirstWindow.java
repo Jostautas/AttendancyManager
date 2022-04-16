@@ -18,11 +18,11 @@ public class FirstWindow extends JFrame{
     private JButton ShowAllB;
     private JLabel CheckConfirmL;
     private JButton PDFAllstudB;
-    private JButton exportToPDFButton1;
+    private JButton PDFAllStudWithinDatesB;
     private JButton showOneB;
     private JButton showOneWDateB;
-    private JButton exportToPDFButton2;
-    private JButton exportToPDFButton3;
+    private JButton PDFOneStudB;
+    private JButton PDFOneStudWithinDatesB;
     private JTextField nameTF;
     private JButton addStudB;
     private JButton saveCSV_B;
@@ -104,7 +104,7 @@ public class FirstWindow extends JFrame{
                 work.setStartDate(work.readDate(startDateTF.getText()));
                 work.setEndDate(work.readDate(endDateTF.getText()));
 
-                work.showAllStudentsWDate();
+                work.showAllStudentsWDate(false);
             }
         });
         showOneB.addActionListener(new ActionListener() {
@@ -114,7 +114,7 @@ public class FirstWindow extends JFrame{
                 work.setDatesT(DatesT);
                 work.setNamesT(NamesT);
                 work.setAttendT(AttendT);
-                work.showOneStudent(nameTF.getText());
+                work.showOneStudent(nameTF.getText(), false);
             }
         });
         showOneWDateB.addActionListener(new ActionListener() {
@@ -128,7 +128,7 @@ public class FirstWindow extends JFrame{
                 work.setStartDate(work.readDate(startDateTF.getText()));
                 work.setEndDate(work.readDate(endDateTF.getText()));
 
-                work.showOneStudWithinDates(nameTF.getText());
+                work.showOneStudWithinDates(nameTF.getText(), false);
             }
         });
         saveCSV_B.addActionListener(new ActionListener() {
@@ -221,6 +221,44 @@ public class FirstWindow extends JFrame{
                 work.setNamesT(NamesT);
                 work.setAttendT(AttendT);
                 work.showAllStudents(true);
+            }
+        });
+        PDFAllStudWithinDatesB.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                FileActions work = new workWithData();
+                work.setDatesT(DatesT);
+                work.setNamesT(NamesT);
+                work.setAttendT(AttendT);
+
+                work.setStartDate(work.readDate(startDateTF.getText()));
+                work.setEndDate(work.readDate(endDateTF.getText()));
+
+                work.showAllStudentsWDate(true);
+            }
+        });
+        PDFOneStudB.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                FileActions work = new workWithData();
+                work.setDatesT(DatesT);
+                work.setNamesT(NamesT);
+                work.setAttendT(AttendT);
+                work.showOneStudent(nameTF.getText(), true);
+            }
+        });
+        PDFOneStudWithinDatesB.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                FileActions work = new workWithData();
+                work.setDatesT(DatesT);
+                work.setNamesT(NamesT);
+                work.setAttendT(AttendT);
+
+                work.setStartDate(work.readDate(startDateTF.getText()));
+                work.setEndDate(work.readDate(endDateTF.getText()));
+
+                work.showOneStudWithinDates(nameTF.getText(), true);
             }
         });
     }
