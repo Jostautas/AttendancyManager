@@ -17,7 +17,7 @@ public class FirstWindow extends JFrame{
     private JButton showAllDateB;
     private JButton ShowAllB;
     private JLabel CheckConfirmL;
-    private JButton exportToPDFButton;
+    private JButton PDFAllstudB;
     private JButton exportToPDFButton1;
     private JButton showOneB;
     private JButton showOneWDateB;
@@ -90,7 +90,7 @@ public class FirstWindow extends JFrame{
                 work.setDatesT(DatesT);
                 work.setNamesT(NamesT);
                 work.setAttendT(AttendT);
-                work.showAllStudents();
+                work.showAllStudents(false);
             }
         });
         showAllDateB.addActionListener(new ActionListener() {
@@ -143,7 +143,6 @@ public class FirstWindow extends JFrame{
                 System.out.println("changes saved");
             }
         });
-
         addStudB.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -212,6 +211,16 @@ public class FirstWindow extends JFrame{
                 impl.setAttendT(AttendT);
                 impl.save(openedFileName);
                 System.out.println("changes saved");
+            }
+        });
+        PDFAllstudB.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                FileActions work = new workWithData();
+                work.setDatesT(DatesT);
+                work.setNamesT(NamesT);
+                work.setAttendT(AttendT);
+                work.showAllStudents(true);
             }
         });
     }

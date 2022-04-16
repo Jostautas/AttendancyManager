@@ -4,7 +4,7 @@ import java.util.ArrayList;
 public interface FileActions {
     void addStudent(String newName);
     void addDate(String str);
-    void showAllStudents();
+    void showAllStudents(Boolean choice); // choice = false - shows table in new window. true - prints to pdf
     void showOneStudent(String name);
     void showOneStudWithinDates(String name);
     void changeAttend(Boolean newVal, String name);
